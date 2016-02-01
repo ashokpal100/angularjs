@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
+<body>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-xs-2"></div>
+		<div class="col-md-4 col-xs-8" style="background-color:gr;color:whit;">
+			<h4>STUDENT CONTACT FORM</h4>
+		<form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate ng-init="date=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]">
+
+			<p>Name:
+			<input type="text" name="fname" ng-model="fname" required>
+			<span style="color:red" ng-show="myForm.fname.$dirty && myForm.fname.$invalid">
+			<span ng-show="myForm.fname.$error.required">name is required.</span>
+			</span>
+			</p>
+
+			<p>Email:
+			<input type="email" name="email" ng-model="email" required>
+			<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+			<span ng-show="myForm.email.$error.required">Email is required.</span>
+			<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+			</span>
+			</p>
+
+			<p>Addess:
+			<input type="text" name="address" ng-model="address" required>
+			<span style="color:red" ng-show="myForm.address.$dirty && myForm.address.$invalid">
+			<span ng-show="myForm.address.$error.required">Address is required.</span>
+			</span>
+			</p>
+			<p>date of birth:<br> date
+				<select  name="date" ng-model="date" required>
+    			<option ng-repeat="n in date">{{n}}
+  			</select>
+  			Month:<select>
+  			<option ng-repeat="i in [1, 2, 3, 4,5,6,7,8,9,10,11,12]">{{i}}</option>
+			</select>	
+			year:<select>
+  			<option ng-repeat="i in [1, 2, 3, 4,5,6,7,8,9,10,11,12]">{{1985+i}}</option>
+			</select>			
+			<span style="color:red" ng-show="myForm.date.$dirty && myForm.date.$invalid">
+			<span ng-show="myForm.date.$error.required">date is required.</span>
+			</span>
+			</p>
+			<p>
+			<input type="submit"
+				ng-disabled="myForm.fname.$dirty && myForm.fname.$invalid ||  
+				myForm.email.$dirty && myForm.email.$invalid  || myForm.address.$dirty && myForm.address.$invalid">
+			</p>
+			<p>{{fname}}</p>
+			<p>{{email}}</p>
+			<p>{{address}}</p>
+			</form></div>
+			<div class="col-md-4 col-xs-2"></div>
+		</div>
+	</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.fname = 'Ashok pal';
+    $scope.email = 'ashok.pal@gmail.com';
+    $scope.address = 'vill-Islampur';
+
+});
+alert("hi");
+</script>
+
+</body>
+</html>

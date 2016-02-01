@@ -1,0 +1,1 @@
+var app = angular.module("myApp", []);//"myApp.js" contains an application module definition
